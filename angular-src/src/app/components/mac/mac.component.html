@@ -1,0 +1,40 @@
+<h2 class="page-header">Message Authentication </h2>
+<div class="alert alert-info" role="alert">
+  <p>
+    This page demonstrates message authentication using one-time secret key which is changing continually depending on
+    time.
+    Server can recover the same one-time secret key and check the authenticity of message. Try to send the same message
+    repeatedly, then check the changing of one-time secret key.
+  </p>
+</div>
+<hr>
+<form (ngSubmit)="onMacSubmit()">
+  <div class="form-group">
+    <label> Type in input message.</label>
+    <textarea class="form-control" rows="3" [(ngModel)]="plaintext" name="plaintext"></textarea>
+  </div>
+  <input type="submit" class="btn btn-primary" value="Send Message">
+</form>
+<hr>
+
+<div class="alert alert-info" role="alert">
+  <h4>Generated one-time secret key </h4>
+  <p>{{key}}</p>
+</div>
+
+<div class="alert alert-warning" role="alert">
+  <h4> Information sent to the server </h4>
+  <p> - Public Token:
+    <textarea class="form-control" rows="5"> {{ptoken}}</textarea>
+  </p>
+  <p> - Current Time: {{ctime}} </p>
+  <p> - Message:
+    <textarea class="form-control" rows="3"> {{plaintext}}</textarea>
+  </p>
+  <p> - MAC: {{mac}} </p>
+</div>
+
+<div class="alert alert-success" role="alert">
+  <h4> Server reply </h4>
+  <p> {{msg}} </p>
+</div>

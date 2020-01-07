@@ -1,0 +1,165 @@
+<div>
+  <h2 class="page-header">What is dual-token authentication? </h2>
+
+  <div class="alert alert-warning" role="alert">
+    <h5>
+      It is a new token authentication technology that can be used in web services to improve security and efficiency of
+      web services. <br><br>
+
+      OAuth2.0 (and JWT) is the standard token authentication technology that is widely used in modern web services.
+      OAuth 2.0 bearer token is widely used for stateless authentication in web environment, but it is vulnerable to
+      eavesdropping attack. Thus, it should be used only in secure communication environment like https that it cannot
+      provide stateless authentication. OAuth 2.0 MAC token is designed to provide randomized authentication using
+      message authentication code that it can be used in non-secure communication environment, but it cannot provide
+      stateless authentication since server has to keep the track of all mac keys for every client. <br><br>
+
+      Dual-token authentication is newly developed token authentication technology that uses dual-token instead of
+      single token. Server issues dual-token (public token and secret token) to logged in client (web browser). Then
+      client can prove its authenticity instantly in time-dependent one-time way using the dual-token, and the server
+      can verify it stateless way without managing any user dependent information. <br><br>
+
+      Dual-token authentication is very efficient in the point of web server. Since time-dependent one-time
+      authentication information cannot be reused by eavesdropping attacker, whole web service can be served in
+      non-secure communication channel, which will save lots of computing. It is considered as an ultimate token
+      authentication technology that makes real stateless web service possible. <br><br>
+
+      This is a simplified model service that demonstrate the dual-token authentication.
+    </h5>
+
+  </div>
+
+
+  <h2 class="page-header">Implementation Environment </h2>
+
+  <div class="alert alert-info" role="alert">
+    <b>MEAN Stack </b>
+    <p>
+      Web development using MongoDB/Express/Angular/Node.js
+    </p>
+
+    <b>Node.js/Express Backend </b>
+    <p>
+      Backend service using node.js and express
+    </p>
+
+    <b>Angular/Cli Frontend </b>
+    <p>
+      Easy web development using Angular front-end framework
+    </p>
+
+    <b>Ionic Framework </b>
+    <p>
+      Dual(iOS/Android) mode mobile app development using Ionic framework
+    </p>
+
+    <b>Heroku Deployment </b>
+    <p>
+      Heroku Cloud Service
+    </p>
+
+    <b>MongoDB Compass </b>
+    <p>
+      MongoDB as a Service
+    </p>
+  </div>
+
+  <h2 class="page-header">Security Technologies</h2>
+
+  <div class="alert alert-warning" role="alert">
+    <b>Dual-Token Authentication </b>
+    <p>
+      Server issues dual-token(public token/secret token) to logged in users <br>
+      Keeping authenticated state using dual-token through plain communication channel <br>
+      High performance without https requirement <br>
+    </p>
+
+    <b>JWT Authentication </b>
+    <p>
+      Application example of JWT authentication <br>
+      It should be executed in https secure communication
+    </p>
+
+    <b>Issuing Certificate </b>
+    <p>
+      Server issues certificate to logged-in user
+    </p>
+
+    <b>Signature-based One-click Easy Login </b>
+    <p>
+      Implement one-click easy login using digital signature and certificate
+    </p>
+
+    <b>Secure ID/Pass Login </b>
+    <p>
+      Server delievers server certificate to client when root(home) page is connected. <br>
+      ID/Pass login information was encrypted with server certificate. <br>
+      Server sends dual-token to client in encrypted way
+    </p>
+
+    <b>Simple Encryption Channel using Dual Token </b>
+    <p>
+      Generate one-time key using dual-token and apply to message encryption
+    </p>
+
+    <b>Simple Message Authentication using Dual Token </b>
+    <p>
+      Generate one-time key using dual-token and apply to message authentication
+    </p>
+  </div>
+
+  <h2 class="page-header">Details of Generation and Usage of Dual-Token </h2>
+
+  <div class="alert alert-info" role="alert">
+    <b>Issuing dual-token by server </b>
+    <p>
+      ptoken = JWT(userInfo, serverSecretKey) <br>
+      stoken = JWT(ptoken, serverSecretKey) <br>
+      Server sends [ptoken, stoken] to client <br>
+      Client saves [ptoken, stoken] in LocalStorage of the browser
+    </p>
+
+    <b>Generating one-time auth info by client </b>
+    <p>
+      Generate client current time (ctime) <br>
+      Compute auth = Hash(ctime, stoken) <br>
+      Client sends [ctime, ptoken, auth] to server
+    </p>
+
+    <b>Verification of client authentication by server </b>
+    <p>
+      Generate server current time (stime) <br>
+      Compute stoken from ptoken: stoken = JWT(ptoken, serverSecretKey) <br>
+      Compute auth' = Hash(ctime, stoken) <br>
+      Verification: (1) Check time difference, (2) Verification of ptoken, (3) Match auth=?auth'
+    </p>
+
+  </div>
+
+  <h2 class="page-header">Notices </h2>
+
+  <div class="alert alert-warning" role="alert">
+    <b>When ID/pass login fails </b>
+    <p>
+      Reload Home page, which will deliever server certificate. <br>
+      ID/Pass login uses server certificate to protect login information from eavesdropping.
+    </p>
+
+    <b>When easy login fails </b>
+    <p>
+      You can utilize easy login only when the client browser is equipped with certificate. You need to get the
+      certificate first.
+    </p>
+  </div>
+
+  <h2 class="page-header">Contact Info. </h2>
+
+  <div class="alert alert-info" role="alert">
+    <b>Professor Byoungcheon Lee </b>
+    <p>
+      - Department of Information Security, Joongbu University, Korea <br>
+      - Email: sultan @ joongbu . ac . kr <br>
+      - Homepage: <a href="http://cris.joongbu.ac.kr"> http://cris.joongbu.ac.kr</a>
+
+    </p>
+
+  </div>

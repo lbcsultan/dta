@@ -1,0 +1,22 @@
+<h2 class="page-header">User List </h2>
+<p>
+  Show user list registered in this server...
+</p>
+<table class="table table-striped">
+  <thead class="thead-dark">
+    <tr>
+      <th>Name</th>
+      <th>Username</th>
+      <th>Email</th>
+      <th>Age</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of users">
+      <td>{{user.name}}</td>
+      <td>{{user.username}}</td>
+      <td>{{user.email}}</td>
+      <td>{{user.age}}</td>
+    </tr>
+  </tbody>
+</table>

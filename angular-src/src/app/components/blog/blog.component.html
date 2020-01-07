@@ -1,0 +1,25 @@
+<div *ngIf="name">
+  <h2 class="page-header"> JWT Authentication </h2>
+  <p>
+    Demonstration of JWT authentication
+  </p>
+  <ul class="list-group">
+    <li class="list-group-item">Name: {{name}}</li>
+    <li class="list-group-item">Username: {{username}}</li>
+    <li class="list-group-item">Email: {{email}}</li>
+    <li class="list-group-item">Age: {{age}}</li>
+  </ul>
+  <br>
+  <h2 class="page-header"> Information sent to the server to access this page </h2>
+  <div class="alert alert-success" role="alert">
+    <p>Public Token :
+      <textarea class="form-control" rows="5"> {{ptoken}}</textarea>
+    </p>
+
+    <p>
+      Fixed JWT(ptoken) is sent to the server repeatedly. <br>
+      If eavesdropping attacker gets this token, s/he will be able to logged in easily. <br>
+      Thus, this communication should be protected with https protocol.
+    </p>
+  </div>
+</div>

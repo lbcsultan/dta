@@ -1,0 +1,63 @@
+<div class="container">
+  <div class="jumbotron text-center alert-danger">
+    <h1>Dual-Token Authentication </h1>
+    <p class="lead"> 이중토큰 인증 서비스 </p>
+    <a class="btn btn-primary" routerLink='/register'> Register </a>
+    &nbsp;&nbsp;
+    <a class="btn btn-success" routerLink='/login'> Login </a>
+  </div>
+
+  <div class="row text-center">
+    <div class="col alert-warning">
+      <h3>MEAN Framework </h3>
+      <p>Web development using Node.js / Express / MongoDB / Angular </p>
+    </div>
+    <div class="col alert-info">
+      <h3>Angular Front-end</h3>
+      <p>Front-end framework using module, component, service </p>
+    </div>
+    <div class="col alert-warning">
+      <h3>Ionic Framework </h3>
+      <p>Mobile app development using Ionic Framework </p>
+    </div>
+  </div>
+
+  <div class="row text-center">
+    <div class="col alert-info">
+      <h3>JWT </h3>
+      <p>Maintaining authenticated state using JSON web token and Passport </p>
+    </div>
+    <div class="col alert-warning">
+      <h3>Dual token authentication </h3>
+      <p> Keeping authenticated state using dual-token (public token/secret token) through plain communication channel
+      </p>
+    </div>
+    <div class="col alert-info">
+      <h3>One-click Easy login </h3>
+      <p>Certificate and digital signature-based one-click login </p>
+    </div>
+  </div>
+  <br>
+
+  <hr>
+
+  <h4> Information on Server Certificate </h4>
+  <div class="alert alert-info">
+
+    <p> Common Name: {{caCommon}} </p>
+    <p> Organization: {{caOrganization}}</p>
+    <p> Org Unit: {{caOU}} </p>
+    <p> Server certificate (stored in LocalStorage) </p>
+    <textarea class="form-control" rows="8">{{caCertPem}} </textarea>
+  </div>
+
+  <h4> Verification of server using one-time server signature </h4>
+  <div class="alert alert-success">
+    <p> Current Time: {{currentTime}}</p>
+    <p> Nonce: {{nonceHex}}</p>
+    <p> One-time signature:</p>
+    <textarea class="form-control" rows="5">{{signatureHex}} </textarea>
+    <p> Signature verification: {{verified}}</p>
+  </div>
+
+</div>
